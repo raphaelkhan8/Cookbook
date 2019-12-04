@@ -36,7 +36,7 @@ namespace CookBook
                 adapter.Fill(recipeTable);
 
                 listRecipes.DisplayMember = "Name";
-                listRecipes.ValueMember = "Id";
+                listRecipes.ValueMember = "Instructions";
                 listRecipes.DataSource = recipeTable;
             }
         }
