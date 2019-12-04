@@ -24,6 +24,7 @@ namespace CookBook
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // methods in here are called when the form first loads
             PopulateRecipes();
         }
 
@@ -36,7 +37,7 @@ namespace CookBook
                 adapter.Fill(recipeTable);
 
                 listRecipes.DisplayMember = "Name";
-                listRecipes.ValueMember = "Instructions";
+                listRecipes.ValueMember = "Id";
                 listRecipes.DataSource = recipeTable;
             }
         }
@@ -44,25 +45,30 @@ namespace CookBook
         {
             string query = "SELECT a.Name FROM ingredient a " +
                 "INNER JOIN RecipeIngredient b ON a.Id = b.IngredientId " +
-                "WHERE b.recipeId = @RecipeId";
+                "WHERE b.RecipeId = @RecipeId";
 
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             using (SqlDataAdapter adapter = new SqlDataAdapter(command))
             {
+                command.Parameters.AddWithValue("@RecipeId", listRecipes.SelectedValue);
+
                 DataTable ingredientTable = new DataTable();
                 adapter.Fill(ingredientTable);
 
-                listRecipes.DisplayMember = "Name";
-                listRecipes.ValueMember = "Id";
-                listRecipes.DataSource = ingredientTable;
+                listIngredients.DisplayMember = "Name";
+                listIngredients.ValueMember = "Id";
+                listIngredients.DataSource = ingredientTable;
             }
         }
 
         private void listRecipes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // methods here are called when a different recipe in the Recipes list-box is selected
+            PopulateIngredients();
+
             /*
-            // Show Recipe's Instuctions when recipe is cicked
+            // Show Recipe's Id when recipe is cicked
             MessageBox.Show(listRecipes.SelectedValue.ToString());
             */
         }
@@ -74,7 +80,7 @@ namespace CookBook
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // methods here are called when a different ingredient in the Recipe Ingredeints list-box is selected
         }
     }
 }
