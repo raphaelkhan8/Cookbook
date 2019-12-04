@@ -40,6 +40,24 @@ namespace CookBook
                 listRecipes.DataSource = recipeTable;
             }
         }
+        private void PopulateIngredients()
+        {
+            string query = "SELECT a.Name FROM ingredient a " +
+                "INNER JOIN RecipeIngredient b ON a.Id = b.IngredientId " +
+                "WHERE b.recipeId = @RecipeId";
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+            {
+                DataTable ingredientTable = new DataTable();
+                adapter.Fill(ingredientTable);
+
+                listRecipes.DisplayMember = "Name";
+                listRecipes.ValueMember = "Id";
+                listRecipes.DataSource = ingredientTable;
+            }
+        }
 
         private void listRecipes_SelectedIndexChanged(object sender, EventArgs e)
         {
