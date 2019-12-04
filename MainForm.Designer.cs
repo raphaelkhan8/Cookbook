@@ -31,6 +31,8 @@
             this.cookBookDataSet = new CookBook.CookBookDataSet();
             this.lblRecipes = new System.Windows.Forms.Label();
             this.listRecipes = new System.Windows.Forms.ListBox();
+            this.listIngredients = new System.Windows.Forms.ListBox();
+            this.lblIngredients = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cookBookDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,11 +60,33 @@
             this.listRecipes.TabIndex = 1;
             this.listRecipes.SelectedIndexChanged += new System.EventHandler(this.listRecipes_SelectedIndexChanged);
             // 
+            // listIngredients
+            // 
+            this.listIngredients.FormattingEnabled = true;
+            this.listIngredients.ItemHeight = 16;
+            this.listIngredients.Location = new System.Drawing.Point(165, 30);
+            this.listIngredients.Name = "listIngredients";
+            this.listIngredients.Size = new System.Drawing.Size(120, 212);
+            this.listIngredients.TabIndex = 3;
+            this.listIngredients.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // lblIngredients
+            // 
+            this.lblIngredients.AutoSize = true;
+            this.lblIngredients.Location = new System.Drawing.Point(162, 9);
+            this.lblIngredients.Name = "lblIngredients";
+            this.lblIngredients.Size = new System.Drawing.Size(126, 17);
+            this.lblIngredients.TabIndex = 2;
+            this.lblIngredients.Text = "Recipe Ingredients";
+            this.lblIngredients.Click += new System.EventHandler(this.label1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 450);
+            this.Controls.Add(this.listIngredients);
+            this.Controls.Add(this.lblIngredients);
             this.Controls.Add(this.listRecipes);
             this.Controls.Add(this.lblRecipes);
             this.Name = "MainForm";
@@ -79,6 +103,8 @@
         private CookBookDataSet cookBookDataSet;
         private System.Windows.Forms.Label lblRecipes;
         private System.Windows.Forms.ListBox listRecipes;
+        private System.Windows.Forms.ListBox listIngredients;
+        private System.Windows.Forms.Label lblIngredients;
     }
 }
 

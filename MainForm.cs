@@ -43,7 +43,20 @@ namespace CookBook
 
         private void listRecipes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*
+            // Show Recipe's Instuctions when recipe is cicked
             MessageBox.Show(listRecipes.SelectedValue.ToString());
+            */
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
