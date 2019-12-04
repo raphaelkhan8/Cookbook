@@ -40,5 +40,10 @@ namespace CookBook
                 listRecipes.DataSource = recipeTable;
             }
         }
+
+        private void listRecipes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(listRecipes.SelectedValue.ToString());
+        }
     }
 }

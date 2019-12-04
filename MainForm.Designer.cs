@@ -56,6 +56,7 @@
             this.listRecipes.Name = "listRecipes";
             this.listRecipes.Size = new System.Drawing.Size(120, 212);
             this.listRecipes.TabIndex = 1;
+            this.listRecipes.SelectedIndexChanged += new System.EventHandler(this.listRecipes_SelectedIndexChanged);
             // 
             // MainForm
             // 
