@@ -36,6 +36,9 @@
             this.btnAddRecipe = new System.Windows.Forms.Button();
             this.txtRecipeName = new System.Windows.Forms.TextBox();
             this.btnUpdateRecipeName = new System.Windows.Forms.Button();
+            this.listAllIngredients = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAddToRecipe = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cookBookDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +50,7 @@
             // lblRecipes
             // 
             this.lblRecipes.AutoSize = true;
-            this.lblRecipes.Location = new System.Drawing.Point(37, 120);
+            this.lblRecipes.Location = new System.Drawing.Point(39, 121);
             this.lblRecipes.Name = "lblRecipes";
             this.lblRecipes.Size = new System.Drawing.Size(59, 17);
             this.lblRecipes.TabIndex = 0;
@@ -59,7 +62,7 @@
             this.listRecipes.ItemHeight = 16;
             this.listRecipes.Location = new System.Drawing.Point(12, 140);
             this.listRecipes.Name = "listRecipes";
-            this.listRecipes.Size = new System.Drawing.Size(120, 212);
+            this.listRecipes.Size = new System.Drawing.Size(120, 196);
             this.listRecipes.TabIndex = 1;
             this.listRecipes.SelectedIndexChanged += new System.EventHandler(this.listRecipes_SelectedIndexChanged);
             // 
@@ -67,16 +70,16 @@
             // 
             this.listIngredients.FormattingEnabled = true;
             this.listIngredients.ItemHeight = 16;
-            this.listIngredients.Location = new System.Drawing.Point(161, 140);
+            this.listIngredients.Location = new System.Drawing.Point(15, 376);
             this.listIngredients.Name = "listIngredients";
-            this.listIngredients.Size = new System.Drawing.Size(120, 212);
+            this.listIngredients.Size = new System.Drawing.Size(120, 196);
             this.listIngredients.TabIndex = 3;
             this.listIngredients.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // lblIngredients
             // 
             this.lblIngredients.AutoSize = true;
-            this.lblIngredients.Location = new System.Drawing.Point(158, 119);
+            this.lblIngredients.Location = new System.Drawing.Point(12, 355);
             this.lblIngredients.Name = "lblIngredients";
             this.lblIngredients.Size = new System.Drawing.Size(126, 17);
             this.lblIngredients.TabIndex = 2;
@@ -85,7 +88,7 @@
             // 
             // btnAddRecipe
             // 
-            this.btnAddRecipe.Location = new System.Drawing.Point(26, 71);
+            this.btnAddRecipe.Location = new System.Drawing.Point(42, 72);
             this.btnAddRecipe.Name = "btnAddRecipe";
             this.btnAddRecipe.Size = new System.Drawing.Size(102, 23);
             this.btnAddRecipe.TabIndex = 4;
@@ -95,7 +98,7 @@
             // 
             // txtRecipeName
             // 
-            this.txtRecipeName.Location = new System.Drawing.Point(26, 43);
+            this.txtRecipeName.Location = new System.Drawing.Point(42, 44);
             this.txtRecipeName.Name = "txtRecipeName";
             this.txtRecipeName.Size = new System.Drawing.Size(219, 22);
             this.txtRecipeName.TabIndex = 5;
@@ -103,7 +106,7 @@
             // 
             // btnUpdateRecipeName
             // 
-            this.btnUpdateRecipeName.Location = new System.Drawing.Point(134, 71);
+            this.btnUpdateRecipeName.Location = new System.Drawing.Point(150, 72);
             this.btnUpdateRecipeName.Name = "btnUpdateRecipeName";
             this.btnUpdateRecipeName.Size = new System.Drawing.Size(111, 23);
             this.btnUpdateRecipeName.TabIndex = 6;
@@ -111,11 +114,43 @@
             this.btnUpdateRecipeName.UseVisualStyleBackColor = true;
             this.btnUpdateRecipeName.Click += new System.EventHandler(this.btnUpdateRecipeName_Click);
             // 
+            // listAllIngredients
+            // 
+            this.listAllIngredients.FormattingEnabled = true;
+            this.listAllIngredients.ItemHeight = 16;
+            this.listAllIngredients.Location = new System.Drawing.Point(165, 140);
+            this.listAllIngredients.Name = "listAllIngredients";
+            this.listAllIngredients.Size = new System.Drawing.Size(129, 196);
+            this.listAllIngredients.TabIndex = 8;
+            this.listAllIngredients.SelectedIndexChanged += new System.EventHandler(this.listAllIngredients_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(162, 120);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(139, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Available Ingredients";
+            // 
+            // btnAddToRecipe
+            // 
+            this.btnAddToRecipe.Location = new System.Drawing.Point(173, 342);
+            this.btnAddToRecipe.Name = "btnAddToRecipe";
+            this.btnAddToRecipe.Size = new System.Drawing.Size(112, 23);
+            this.btnAddToRecipe.TabIndex = 9;
+            this.btnAddToRecipe.Text = "Add To Recipe";
+            this.btnAddToRecipe.UseVisualStyleBackColor = true;
+            this.btnAddToRecipe.Click += new System.EventHandler(this.btnAddToRecipe_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 450);
+            this.ClientSize = new System.Drawing.Size(521, 613);
+            this.Controls.Add(this.btnAddToRecipe);
+            this.Controls.Add(this.listAllIngredients);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnUpdateRecipeName);
             this.Controls.Add(this.txtRecipeName);
             this.Controls.Add(this.btnAddRecipe);
@@ -142,6 +177,9 @@
         private System.Windows.Forms.Button btnAddRecipe;
         private System.Windows.Forms.TextBox txtRecipeName;
         private System.Windows.Forms.Button btnUpdateRecipeName;
+        private System.Windows.Forms.ListBox listAllIngredients;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAddToRecipe;
     }
 }
 
