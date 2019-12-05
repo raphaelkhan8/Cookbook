@@ -143,7 +143,7 @@ namespace CookBook
 
         private void btnAddToRecipe_Click(object sender, EventArgs e)
         {
-            // insert the selected ingredient into the join table
+            // insert an association between the selected ingredient and selected recipe into the join table
             string query = "INSERT INTO RecipeIngredient VALUES (@RecipeId, @IngredientId)";
 
             using (connection = new SqlConnection(connectionString))
@@ -154,7 +154,6 @@ namespace CookBook
                 command.Parameters.AddWithValue("@IngredientId", listAllIngredients.SelectedValue);
                 command.ExecuteNonQuery();
             }
-            // repopulate recipes with the newly added recipe:
             PopulateRecipes();
         }
     }
