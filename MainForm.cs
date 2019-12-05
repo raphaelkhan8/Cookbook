@@ -75,7 +75,17 @@ namespace CookBook
 
         private void label1_Click(object sender, EventArgs e)
         {
+            string query = "INSERT INTO recipe VALUES (@RecipeName, 9000, 'JUST DO IT!')";
 
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@RecipeName", txtRecipeName.Text);
+
+                command.ExecuteNonQuery();
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
