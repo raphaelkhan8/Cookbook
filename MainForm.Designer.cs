@@ -33,7 +33,7 @@
             this.listRecipes = new System.Windows.Forms.ListBox();
             this.listIngredients = new System.Windows.Forms.ListBox();
             this.lblIngredients = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddRecipe = new System.Windows.Forms.Button();
             this.txtRecipeName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.cookBookDataSet)).BeginInit();
             this.SuspendLayout();
@@ -82,14 +82,15 @@
             this.lblIngredients.Text = "Recipe Ingredients";
             this.lblIngredients.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button1
+            // btnAddRecipe
             // 
-            this.button1.Location = new System.Drawing.Point(26, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Add Recipe";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddRecipe.Location = new System.Drawing.Point(26, 71);
+            this.btnAddRecipe.Name = "btnAddRecipe";
+            this.btnAddRecipe.Size = new System.Drawing.Size(92, 23);
+            this.btnAddRecipe.TabIndex = 4;
+            this.btnAddRecipe.Text = "Add Recipe";
+            this.btnAddRecipe.UseVisualStyleBackColor = true;
+            this.btnAddRecipe.Click += new System.EventHandler(this.btnAddRecipe_Click);
             // 
             // txtRecipeName
             // 
@@ -97,6 +98,7 @@
             this.txtRecipeName.Name = "txtRecipeName";
             this.txtRecipeName.Size = new System.Drawing.Size(141, 22);
             this.txtRecipeName.TabIndex = 5;
+            this.txtRecipeName.TextChanged += new System.EventHandler(this.txtRecipeName_TextChanged);
             // 
             // MainForm
             // 
@@ -104,7 +106,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 450);
             this.Controls.Add(this.txtRecipeName);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddRecipe);
             this.Controls.Add(this.listIngredients);
             this.Controls.Add(this.lblIngredients);
             this.Controls.Add(this.listRecipes);
@@ -125,7 +127,7 @@
         private System.Windows.Forms.ListBox listRecipes;
         private System.Windows.Forms.ListBox listIngredients;
         private System.Windows.Forms.Label lblIngredients;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddRecipe;
         private System.Windows.Forms.TextBox txtRecipeName;
     }
 }
