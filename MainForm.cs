@@ -26,6 +26,7 @@ namespace CookBook
         {
             // methods in here are called when the form first loads
             PopulateRecipes();
+            PopulateAllIngredients();
         }
 
         private void PopulateRecipes()
@@ -41,6 +42,21 @@ namespace CookBook
                 listRecipes.DataSource = recipeTable;
             }
         }
+
+        private void PopulateAllIngredients()
+        {
+            using (connection = new SqlConnection(connectionString))
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM ingredient", connection))
+            {
+                DataTable ingredientTable = new DataTable();
+                adapter.Fill(ingredientTable);
+
+                listAllIngredients.DisplayMember = "Name";
+                listAllIngredients.ValueMember = "Id";
+                listAllIngredients.DataSource = ingredientTable;
+            }
+        }
+
         private void PopulateIngredients()
         {
             string query = "SELECT a.Name FROM ingredient a " +
@@ -75,8 +91,9 @@ namespace CookBook
 
         private void label1_Click(object sender, EventArgs e)
         {
-          
+         
         }
+
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -85,7 +102,7 @@ namespace CookBook
 
         private void txtRecipeName_TextChanged(object sender, EventArgs e)
         {
-
+            // methods here are called when something in the input Recipe Name text-box changes
         }
 
         private void btnAddRecipe_Click(object sender, EventArgs e)
@@ -116,6 +133,28 @@ namespace CookBook
                 command.Parameters.AddWithValue("@RecipeId", listRecipes.SelectedValue);
                 command.ExecuteNonQuery();
             }
+            PopulateRecipes();
+        }
+
+        private void listAllIngredients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // methods here are called when an ingredient in the All Ingredients list-box is selected 
+        }
+
+        private void btnAddToRecipe_Click(object sender, EventArgs e)
+        {
+            // insert the selected ingredient into the join table
+            string query = "INSERT INTO RecipeIngredient VALUES (@RecipeId, @IngredientId)";
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                command.Parameters.AddWithValue("@RecipeId", listRecipes.SelectedValue);
+                command.Parameters.AddWithValue("@IngredientId", listAllIngredients.SelectedValue);
+                command.ExecuteNonQuery();
+            }
+            // repopulate recipes with the newly added recipe:
             PopulateRecipes();
         }
     }
