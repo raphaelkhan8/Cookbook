@@ -109,6 +109,7 @@
             this.btnUpdateRecipeName.TabIndex = 6;
             this.btnUpdateRecipeName.Text = "Update Name";
             this.btnUpdateRecipeName.UseVisualStyleBackColor = true;
+            this.btnUpdateRecipeName.Click += new System.EventHandler(this.btnUpdateRecipeName_Click);
             // 
             // MainForm
             // 

@@ -99,6 +99,23 @@ namespace CookBook
                 command.Parameters.AddWithValue("@RecipeName", txtRecipeName.Text);
                 command.ExecuteNonQuery();
             }
+            // repopulate recipes with the newly added recipe:
+            PopulateRecipes();
+        }
+
+        private void btnUpdateRecipeName_Click(object sender, EventArgs e)
+        {
+            // set the name of the selected recipe to whatever is typed in the text box
+            string query = "UPDATE recipe SET Name = @RecipeName WHERE id = @RecipeId";
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                command.Parameters.AddWithValue("@RecipeName", txtRecipeName.Text);
+                command.Parameters.AddWithValue("@RecipeId", listRecipes.SelectedValue);
+                command.ExecuteNonQuery();
+            }
             PopulateRecipes();
         }
     }
